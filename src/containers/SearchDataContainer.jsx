@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import SearchBar from '../components/SearchBar';
+import JsonOutput from '../components/JsonOutput';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -8,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
       width: "50%",
       display: "flex",
       flexDirection: "column",
-      padding: "50px 50px 150px 50px",  
+      padding: "50px 50px 50px 50px",  
     }
 }));
 
@@ -17,9 +18,10 @@ const SearchDataContainer = () => {
 
     return (
         <div className={classes.root}>
-            <p>Search Data Container</p>
+            <h3>Search the API</h3>
             <SearchBar />
-            <p>Holds the JSON Output</p>
+            <h3>Response</h3>
+            <JsonOutput />
         </div>
     )
 }
