@@ -1,16 +1,17 @@
 import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
+import TextField from '@material-ui/core/TextField';
+import InputAdornment from '@material-ui/core/InputAdornment';
 
 const useStyles = makeStyles((theme) => ({
     search: {
         display: 'flex',
         borderRadius: theme.shape.borderRadius,
         backgroundColor: theme.palette.common.white,
-        '&:hover': {backgroundColor: theme.palette.common.white},
-        marginRight: theme.spacing(2),
-        marginLeft: theme.spacing(2),
+        // '&:hover': {backgroundColor: theme.palette.common.white},
+        // marginRight: theme.spacing(2),
+        // marginLeft: theme.spacing(2),
         width: '100%',
       },
       searchIcon: {
@@ -24,6 +25,10 @@ const useStyles = makeStyles((theme) => ({
       inputRoot: {
         color: 'inherit',
         flexGrow: 1,
+        backgroundColor: theme.palette.common.white,
+        borderRadius: 10,
+        paddingTop: theme.spacing(1),
+        paddingLeft: theme.spacing(1),
       },
       inputInput: {
         padding: theme.spacing(1, 1, 1, 0),
@@ -35,10 +40,11 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: "#E09F3E",
         color: "#fff",
         fontSize: "16px",
-        padding: "6px 30px",
+        padding: "5px 30px",
         borderRadius: "4px",
         border: "none",
         cursor: "pointer",
+        marginLeft: theme.spacing(1)
     }
 }));
 
@@ -49,32 +55,38 @@ const SearchBar = () => {
     const [searchResults, setSearchResults] = useState({});
 
     const handleSearchChange = (e) => {
+        console.log(e.target.value);
         setSearchText(e.target.value)
     }
 
     const handleSearchSubmit = (e) => {
         e.preventDefault();
         console.log("Form Submitted")
-        fetch(searchText)
-        .then(resp => resp.json())
-        .then(data => {
-            setSearchResults(data);
-        })
+        // fetch(searchText)
+        // .then(resp => resp.json())
+        // .then(data => {
+        //     setSearchResults(data);
+        // })
     }
 
     return (
         <form className={classes.search} onSubmit={handleSearchSubmit}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              defaultValue={baseUrl}
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-              onChange={handleSearchChange}
+            <TextField
+                id="searchField"
+                value={searchText}
+                className={`${classes.inputRoot} ${classes.inputInput}`}
+                helperText="Some examples will go here"
+                margin="none"
+                inputProps={{ 'aria-label': 'search' }}
+                onChange={handleSearchChange}
+                variant="standard"
+                color="primary"
+                InputProps={{
+                    startAdornment: <InputAdornment position="start"><SearchIcon /></InputAdornment>,
+                }}
+                FormHelperTextProps={{
+                    variant: "filled"
+                }}
             />
             <input type="submit" value="Search" className={classes.btn} />
         </form>
@@ -82,3 +94,18 @@ const SearchBar = () => {
 }
 
 export default SearchBar;
+
+
+// {/* <InputBase
+//     defaultValue={baseUrl}
+//     classes={{
+//     root: classes.inputRoot,
+//     input: classes.inputInput,
+//     }}
+//     inputProps={{ 'aria-label': 'search' }}
+//     onChange={handleSearchChange}
+// /> */}
+
+// {/* <div className={classes.searchIcon}>
+//     <SearchIcon />
+// </div> */}
