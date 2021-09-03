@@ -19,3 +19,6 @@
 ## Eventually
 1. Add a signup and login page (need to work on backend for this then)
 2. Adds a page to the header for adding or editing data
+
+
+1. Set up 2 different Searches. Initial one is the generic one home page to JSON. The second one is a different page so that you can search for characters, books, etc to get specific details on 1 instance
