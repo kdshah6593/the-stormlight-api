@@ -22,3 +22,7 @@
 
 
 1. Set up 2 different Searches. Initial one is the generic one home page to JSON. The second one is a different page so that you can search for characters, books, etc to get specific details on 1 instance
+
+
+
+1. Look into react-router-hash-links so that when clicking on a vertical tab - it links to a section of the page instead of rendering new component; started code in Overview Page component
