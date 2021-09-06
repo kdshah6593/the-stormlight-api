@@ -46,10 +46,10 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
     display: 'flex',
-    // height: 224,
   },
   tabs: {
     borderRight: `1px solid ${theme.palette.divider}`,
+    overflow: 'visible',
   },
 }));
 
@@ -79,6 +79,12 @@ const OverviewPage = () => {
         <Tab label="Caching" {...a11yProps(5)} />
         <Tab label="Versioning" {...a11yProps(6)} />
       </Tabs>
+
+      {/* <div style={{display: 'flex', flexDirection: 'column', padding: 20}}>
+        <Introduction />
+        <CurrentVersion />
+      </div> */}
+
       <TabPanel value={value} index={0}>
         <Introduction />
       </TabPanel>
