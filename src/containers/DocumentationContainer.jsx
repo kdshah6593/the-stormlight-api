@@ -1,12 +1,13 @@
 import React from 'react';
 import Header from '../components/Header'
+import DocumentationHorizontalTabs from '../components/DocumentationHorizontalTabs';
 
 const DocumentationContainer = () => {
 
     return (
         <div>
             <Header/>
-            <p>Documentation Page</p>
+            <DocumentationHorizontalTabs />
         </div>
     )
 }
