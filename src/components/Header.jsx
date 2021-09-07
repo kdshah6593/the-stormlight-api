@@ -19,7 +19,8 @@ const useStyles = makeStyles((theme) => ({
   navHeadings: {
     flexGrow: 1,
     textAlign: 'right',
-  }
+  },
+  toolbar: theme.mixins.toolbar,
 }));
 
 export default function ButtonAppBar() {
@@ -27,7 +28,7 @@ export default function ButtonAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
             The Stormlight API
@@ -39,6 +40,7 @@ export default function ButtonAppBar() {
           </Typography>
         </Toolbar>
       </AppBar>
+      <div className={classes.toolbar} />
     </div>
   );
 }
