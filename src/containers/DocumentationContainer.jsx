@@ -1,13 +1,13 @@
 import React from 'react';
 import Header from '../components/Header'
-import DocumentationHorizontalTabs from '../components/DocumentationHorizontalTabs';
+import DocumentationPage from '../components/DocumentationPage';
 
 const DocumentationContainer = () => {
 
     return (
         <div>
             <Header/>
-            <DocumentationHorizontalTabs />
+            <DocumentationPage />
         </div>
     )
 }
