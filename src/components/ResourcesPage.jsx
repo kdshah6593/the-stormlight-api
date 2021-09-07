@@ -2,6 +2,15 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import Root from './resourcePages/Root';
+import Books from './resourcePages/Books';
+import Characters from './resourcePages/Characters';
+import Essences from './resourcePages/Essences';
+import Surges from './resourcePages/Surges';
+import OrdersOfTheKnightsRadiant from './resourcePages/OrdersOfTheKnightsRadiant';
+import Heralds from './resourcePages/Heralds';
+import Nations from './resourcePages/Nations';
+import Races from './resourcePages/Races';
 
 
 function a11yProps(index) {
@@ -64,19 +73,27 @@ const ResourcesPage = () => {
         aria-label="Vertical tabs example"
         className={classes.tabs}
       >
-        <LinkTab label="Root" href="#" {...a11yProps(0)} className={classes.tab} />
-        <LinkTab label="Books" href="#" {...a11yProps(1)} className={classes.tab} />
-        <LinkTab label="Characters" href="#" {...a11yProps(2)} className={classes.tab} />
-        <LinkTab label="Essences" href="#" {...a11yProps(3)} className={classes.tab} />
-        <LinkTab label="Surges" href="#" {...a11yProps(4)} className={classes.tab} />
-        <LinkTab label="Order of the Knights Radiant" href="#" {...a11yProps(5)} className={classes.tab} />
-        <LinkTab label="Heralds" href="#" {...a11yProps(6)} className={classes.tab} />
-        <LinkTab label="Nations" href="#" {...a11yProps(7)} className={classes.tab} />
-        <LinkTab label="Races" href="#" {...a11yProps(8)} className={classes.tab} />
+        <LinkTab label="Root" href="#root" {...a11yProps(0)} className={classes.tab} />
+        <LinkTab label="Books" href="#books" {...a11yProps(1)} className={classes.tab} />
+        <LinkTab label="Characters" href="#characters" {...a11yProps(2)} className={classes.tab} />
+        <LinkTab label="Essences" href="#essences" {...a11yProps(3)} className={classes.tab} />
+        <LinkTab label="Surges" href="#surges" {...a11yProps(4)} className={classes.tab} />
+        <LinkTab label="Orders of the Knights Radiant" href="#ordersOfTheKnightsRadiant" {...a11yProps(5)} className={classes.tab} />
+        <LinkTab label="Heralds" href="#heralds" {...a11yProps(6)} className={classes.tab} />
+        <LinkTab label="Nations" href="#nations" {...a11yProps(7)} className={classes.tab} />
+        <LinkTab label="Races" href="#races" {...a11yProps(8)} className={classes.tab} />
       </Tabs>
 
       <div className={classes.sections}>
-
+        <Root id="root" />
+        <Books id="books" />
+        <Characters id="characters" />
+        <Essences id="essences" />
+        <Surges id="surges" />
+        <OrdersOfTheKnightsRadiant id="ordersOfTheKnightsRadiant" />
+        <Heralds id="heralds" />
+        <Nations id="nations" />
+        <Races id="races" />
       </div>
     </div>
   );
