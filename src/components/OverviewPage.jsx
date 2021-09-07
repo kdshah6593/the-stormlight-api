@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
   },
   tabs: {
-    borderRight: `1px solid ${theme.palette.divider}`,
+    // borderRight: `1px solid ${theme.palette.divider}`,
     overflow: 'visible',
     width: '200px',
     position: 'fixed',
@@ -46,6 +46,9 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     paddingLeft: 20,
     marginLeft: '200px',
+  },
+  tab: {
+    border: `1px solid ${theme.palette.divider}`,
   }
 }));
 
@@ -62,18 +65,19 @@ const OverviewPage = () => {
       <Tabs
         orientation="vertical"
         variant="scrollable"
+        indicatorColor="#fff"
         value={value}
         onChange={handleChange}
         aria-label="Vertical tabs example"
         className={classes.tabs}
       >
-        <LinkTab label="Introduction" href="#intro" {...a11yProps(0)} />
-        <LinkTab label="Current Version" href="#currentVersion" {...a11yProps(1)} />
-        <LinkTab label="Authentication" href="#authentication" {...a11yProps(2)} />
-        <LinkTab label="Pagination" href="#pagination" {...a11yProps(3)} />
-        <LinkTab label="Rate Limiting" href="#rateLimiting" {...a11yProps(4)} />
-        <LinkTab label="Caching" href="#caching" {...a11yProps(5)} />
-        <LinkTab label="Versioning" href="#versioning" {...a11yProps(6)} />
+        <LinkTab label="Introduction" href="#intro" {...a11yProps(0)} className={classes.tab} />
+        <LinkTab label="Current Version" href="#currentVersion" {...a11yProps(1)} className={classes.tab} />
+        <LinkTab label="Authentication" href="#authentication" {...a11yProps(2)} className={classes.tab} />
+        <LinkTab label="Pagination" href="#pagination" {...a11yProps(3)} className={classes.tab} />
+        <LinkTab label="Rate Limiting" href="#rateLimiting" {...a11yProps(4)} className={classes.tab} />
+        <LinkTab label="Caching" href="#caching" {...a11yProps(5)} className={classes.tab} />
+        <LinkTab label="Versioning" href="#versioning" {...a11yProps(6)} className={classes.tab} />
       </Tabs>
 
       <div className={classes.sections}>
