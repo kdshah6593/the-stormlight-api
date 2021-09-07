@@ -36,7 +36,17 @@ const useStyles = makeStyles((theme) => ({
   tabs: {
     borderRight: `1px solid ${theme.palette.divider}`,
     overflow: 'visible',
+    width: '200px',
+    position: 'fixed',
+    // zIndex: 1,
+    // overflowX: 'hidden',
   },
+  sections: {
+    display: 'flex',
+    flexDirection: 'column',
+    paddingLeft: 20,
+    marginLeft: '200px',
+  }
 }));
 
 const OverviewPage = () => {
@@ -66,8 +76,7 @@ const OverviewPage = () => {
         <LinkTab label="Versioning" href="#versioning" {...a11yProps(6)} />
       </Tabs>
 
-      <div style={{display: 'flex', flexDirection: 'column', padding: 20}}>
-        <a href="#authentication">Jump To Version</a>
+      <div className={classes.sections}>
         <Introduction id="intro" />
         <CurrentVersion id="currentVersion" />
         <Authentication id="authentication" />
