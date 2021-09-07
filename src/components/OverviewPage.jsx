@@ -1,44 +1,30 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
 import Introduction from './overviewPages/Introduction';
 import CurrentVersion from './overviewPages/CurrentVersion';
+import Authentication from './overviewPages/Authentication';
+import Pagination from './overviewPages/Pagination';
+import RateLimiting from './overviewPages/RateLimiting';
+import Caching from './overviewPages/Caching';
+import Versioning from './overviewPages/Versioning';
 
-const TabPanel = (props) => {
-  const { children, value, index, ...other } = props;
-
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`vertical-tabpanel-${index}`}
-      aria-labelledby={`vertical-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box p={3}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
-}
-
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.any.isRequired,
-  value: PropTypes.any.isRequired,
-};
 
 function a11yProps(index) {
   return {
     id: `vertical-tab-${index}`,
     'aria-controls': `vertical-tabpanel-${index}`,
   };
+}
+
+function LinkTab(props) {
+  return (
+    <Tab
+      component="a"
+      {...props}
+    />
+  );
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -71,41 +57,25 @@ const OverviewPage = () => {
         aria-label="Vertical tabs example"
         className={classes.tabs}
       >
-        <Tab label="Introduction" {...a11yProps(0)} />
-        <Tab label="Current Version" {...a11yProps(1)} />
-        <Tab label="Authentication" {...a11yProps(2)} />
-        <Tab label="Pagination" {...a11yProps(3)} />
-        <Tab label="Rate Limiting" {...a11yProps(4)} />
-        <Tab label="Caching" {...a11yProps(5)} />
-        <Tab label="Versioning" {...a11yProps(6)} />
+        <LinkTab label="Introduction" href="#intro" {...a11yProps(0)} />
+        <LinkTab label="Current Version" href="#currentVersion" {...a11yProps(1)} />
+        <LinkTab label="Authentication" href="#authentication" {...a11yProps(2)} />
+        <LinkTab label="Pagination" href="#pagination" {...a11yProps(3)} />
+        <LinkTab label="Rate Limiting" href="#rateLimiting" {...a11yProps(4)} />
+        <LinkTab label="Caching" href="#caching" {...a11yProps(5)} />
+        <LinkTab label="Versioning" href="#versioning" {...a11yProps(6)} />
       </Tabs>
 
-      {/* <div style={{display: 'flex', flexDirection: 'column', padding: 20}}>
-        <Introduction />
-        <CurrentVersion />
-      </div> */}
-
-      <TabPanel value={value} index={0}>
-        <Introduction />
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        <CurrentVersion />
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        Authentication
-      </TabPanel>
-      <TabPanel value={value} index={3}>
-        Pagination
-      </TabPanel>
-      <TabPanel value={value} index={4}>
-        Rate Limiting
-      </TabPanel>
-      <TabPanel value={value} index={5}>
-        Caching
-      </TabPanel>
-      <TabPanel value={value} index={6}>
-        Versioning
-      </TabPanel>
+      <div style={{display: 'flex', flexDirection: 'column', padding: 20}}>
+        <a href="#authentication">Jump To Version</a>
+        <Introduction id="intro" />
+        <CurrentVersion id="currentVersion" />
+        <Authentication id="authentication" />
+        <Pagination id="pagination" />
+        <RateLimiting id="rateLimiting" />
+        <Caching id="caching" />
+        <Versioning id="versioning" />
+      </div>
     </div>
   );
 }
