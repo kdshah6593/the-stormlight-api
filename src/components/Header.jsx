@@ -15,10 +15,23 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 0,
+    fontFamily: "'Oswald', sans-serif",
+    letterSpacing: "5px",
+    fontSize: "30px",
   },
   navHeadings: {
     flexGrow: 1,
     textAlign: 'right',
+  },
+  linkBtn: {
+    backgroundColor: '#fff',
+    fontFamily: `'Oswald', sans-serif`,
+    color: "inherit",
+    letterSpacing: "2px",
+    '&:hover': {
+      backgroundColor: theme.palette.error.light,
+      color: '#fff',
+    }
   },
   toolbar: theme.mixins.toolbar,
 }));
@@ -28,15 +41,15 @@ export default function ButtonAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="fixed">
+      <AppBar position="fixed" color="inherit">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            The Stormlight API
+            THE STORMLIGHT API
           </Typography>
           <Typography className={classes.navHeadings}>
-            <Link to="/" style={{ color: 'inherit', textDecoration: 'inherit'}}><Button color="inherit">Home</Button></Link>
-            <Link to="/about" style={{ color: 'inherit', textDecoration: 'inherit'}}><Button color="inherit">About</Button></Link>
-            <Link to="/documentation" style={{ color: 'inherit', textDecoration: 'inherit'}}><Button color="inherit">Documentation</Button></Link>
+            <Link to="/" style={{ color: 'inherit', textDecoration: 'inherit'}}><Button className={classes.linkBtn}>Home</Button></Link>
+            <Link to="/about" style={{ color: 'inherit', textDecoration: 'inherit'}}><Button className={classes.linkBtn}>About</Button></Link>
+            <Link to="/documentation" style={{ color: 'inherit', textDecoration: 'inherit'}}><Button className={classes.linkBtn}>Documentation</Button></Link>
           </Typography>
         </Toolbar>
       </AppBar>

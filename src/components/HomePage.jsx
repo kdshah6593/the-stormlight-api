@@ -8,6 +8,20 @@ const useStyles = makeStyles((theme) => ({
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
+    },
+    title: {
+        fontFamily: "'Cinzel Decorative', cursive",
+        letterSpacing: "5px",
+        fontSize: "60px",
+        marginTop: "1%",
+        marginBottom: "1%",
+    },
+    subTitle: {
+        fontFamily: "'Cinzel Decorative', cursive",
+        letterSpacing: "5px",
+        fontSize: "30px",
+        marginTop: "1%",
+        marginBottom: "1%",
     }
 }));
 
@@ -15,12 +29,14 @@ const HomePage = () => {
 
     const classes = useStyles();
 
+    const e = <span>e</span>
+
     return (
         <div>
             <Header/>
             <div className={classes.root}>
-                <h1>Welcome to the Stormlight API</h1>
-                <h3>Find all the data from the world of Roshar</h3>
+                <h1 className={classes.title}>Welcome to th<span style={{marginLeft: "17px"}}>e</span> Stormlight API</h1>
+                <h3 className={classes.subTitle}>Find all th{e} data from th{e} world of Roshar</h3>
                 <SearchDataContainer />
             </div>
         </div>

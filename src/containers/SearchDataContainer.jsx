@@ -5,11 +5,16 @@ import JsonOutput from '../components/JsonOutput';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-      backgroundColor: "lightblue",
+      backgroundColor: theme.palette.error.light,
       width: "50%",
       display: "flex",
       flexDirection: "column",
-      padding: "50px 50px 50px 50px",  
+      padding: "10px 75px 50px 75px",  
+    },
+    subTitle: {
+        fontFamily: "'Cinzel Decorative', cursive",
+        fontWeight: 900,
+        fontSize: "24px"
     }
 }));
 
@@ -18,9 +23,10 @@ const SearchDataContainer = () => {
 
     return (
         <div className={classes.root}>
-            <h3>Search the API</h3>
+            <h3 className={classes.subTitle}>Search the API</h3>
             <SearchBar />
-            <h3>Response</h3>
+            <p>Try Out these</p>
+            <h3 className={classes.subTitle}>Response</h3>
             <JsonOutput />
         </div>
     )
