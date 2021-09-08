@@ -13,6 +13,17 @@ const useStyles = makeStyles((theme) => ({
         // marginRight: theme.spacing(2),
         // marginLeft: theme.spacing(2),
         width: '100%',
+        '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+              borderColor: 'white',
+            },
+            '&:hover fieldset': {
+              borderColor: 'white',
+            },
+            '&.Mui-focused fieldset': {
+              borderColor: 'white',
+            },
+          },
       },
       searchIcon: {
         padding: theme.spacing(2, 2),
@@ -31,20 +42,24 @@ const useStyles = makeStyles((theme) => ({
         paddingLeft: theme.spacing(1),
       },
       inputInput: {
-        padding: theme.spacing(1, 1, 1, 0),
+        padding: theme.spacing(0, 0, 0, 0),
         // vertical padding + font size from searchIcon
         paddingLeft: theme.spacing(0),
         width: '100%',
       },
       btn: {
-        backgroundColor: "#E09F3E",
+        backgroundColor: "#00838f",
         color: "#fff",
+        fontFamily: "'Oswald', sans-serif",
         fontSize: "16px",
         padding: "5px 30px",
         borderRadius: "4px",
         border: "none",
         cursor: "pointer",
-        marginLeft: theme.spacing(1)
+        marginLeft: theme.spacing(0),
+        '&:hover': {
+            backgroundColor: "#4fb3bf"
+        }
     }
 }));
 
@@ -75,11 +90,11 @@ const SearchBar = () => {
                 id="searchField"
                 value={searchText}
                 className={`${classes.inputRoot} ${classes.inputInput}`}
-                helperText="Some examples will go here"
+                // helperText="Try out: /books/3 or /characters/145 or /nations"
                 margin="none"
                 inputProps={{ 'aria-label': 'search' }}
                 onChange={handleSearchChange}
-                variant="standard"
+                variant="outlined"
                 color="primary"
                 InputProps={{
                     startAdornment: <InputAdornment position="start"><SearchIcon /></InputAdornment>,

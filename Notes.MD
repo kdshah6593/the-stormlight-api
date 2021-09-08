@@ -25,4 +25,7 @@
 
 
 
-1. Look into react-router-hash-links so that when clicking on a vertical tab - it links to a section of the page instead of rendering new component; started code in Overview Page component
+Colors: 
+#e57373 ===== theme.palette.error.light
+#00838f dark blue/green
+#4fb3bf lighter of the blue/green
