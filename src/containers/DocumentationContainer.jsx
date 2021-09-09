@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../components/Header'
 import DocumentationPage from '../components/DocumentationPage';
+import Footer from '../components/Footer';
 
 const DocumentationContainer = () => {
 
@@ -8,6 +9,7 @@ const DocumentationContainer = () => {
         <div>
             <Header/>
             <DocumentationPage />
+            <Footer />
         </div>
     )
 }
