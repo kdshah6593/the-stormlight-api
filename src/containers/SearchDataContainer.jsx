@@ -9,7 +9,8 @@ const useStyles = makeStyles((theme) => ({
       width: "50%",
       display: "flex",
       flexDirection: "column",
-      padding: "10px 75px 50px 75px",  
+      padding: "10px 50px 30px 50px",  
+      margin: "5px 5px 25px 5px",
     },
     subTitle: {
         fontFamily: "'Cinzel Decorative', cursive",
