@@ -51,6 +51,8 @@ const useStyles = makeStyles((theme) => ({
   },
   tab: {
     border: `1px solid ${theme.palette.divider}`,
+    fontFamily: "'Oswald', sans-serif",
+    letterSpacing: "1px",
   }
 }));
 

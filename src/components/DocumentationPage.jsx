@@ -41,6 +41,10 @@ const useStyles = makeStyles({
   root: {
     flexGrow: 1,
   },
+  tab: {
+    fontFamily: "'Oswald', sans-serif",
+    letterSpacing: "3px",
+  }
 });
 
 const DocumentationPage = () => {
@@ -61,8 +65,8 @@ const DocumentationPage = () => {
                 textColor="primary"
                 centered
             >
-                <Tab label="Overview Page" />
-                <Tab label="Resource Page" />
+                <Tab label="Overview Page" className={classes.tab} />
+                <Tab label="Resource Page" className={classes.tab} />
             </Tabs>
         </Paper>
 
