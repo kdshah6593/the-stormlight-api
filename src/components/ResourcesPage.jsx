@@ -9,7 +9,7 @@ import Essences from './resourcePages/Essences';
 import Surges from './resourcePages/Surges';
 import OrdersOfTheKnightsRadiant from './resourcePages/OrdersOfTheKnightsRadiant';
 import Heralds from './resourcePages/Heralds';
-import Nations from './resourcePages/Nations';
+import Locations from './resourcePages/Locations';
 import Races from './resourcePages/Races';
 
 
@@ -82,7 +82,7 @@ const ResourcesPage = () => {
         <LinkTab label="Surges" href="#surges" {...a11yProps(4)} className={classes.tab} />
         <LinkTab label="Orders of the Knights Radiant" href="#ordersOfTheKnightsRadiant" {...a11yProps(5)} className={classes.tab} />
         <LinkTab label="Heralds" href="#heralds" {...a11yProps(6)} className={classes.tab} />
-        <LinkTab label="Nations" href="#nations" {...a11yProps(7)} className={classes.tab} />
+        <LinkTab label="Locations" href="#locations" {...a11yProps(7)} className={classes.tab} />
         <LinkTab label="Races" href="#races" {...a11yProps(8)} className={classes.tab} />
       </Tabs>
 
@@ -94,7 +94,7 @@ const ResourcesPage = () => {
         <Surges id="surges" />
         <OrdersOfTheKnightsRadiant id="ordersOfTheKnightsRadiant" />
         <Heralds id="heralds" />
-        <Nations id="nations" />
+        <Locations id="locations" />
         <Races id="races" />
       </div>
     </div>
