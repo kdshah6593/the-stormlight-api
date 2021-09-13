@@ -60,10 +60,14 @@ const useStyles = makeStyles((theme) => ({
         '&:hover': {
             backgroundColor: "#4fb3bf"
         }
+    },
+    searchLink: {
+        textDecoration: "underline",
+        cursor: "pointer",
     }
 }));
 
-const SearchBar = () => {
+const SearchBar = (props) => {
     const classes = useStyles();
     const baseUrl = "https://thestormlightapi.com/api/";
     const [searchText, setSearchText] = useState(baseUrl);
@@ -73,6 +77,14 @@ const SearchBar = () => {
         console.log(e.target.value);
         setSearchText(e.target.value)
     }
+
+    const handleLinkClick = (e) => {
+      e.preventDefault();
+      console.log("Link is clicked");
+      // console.log(e.target.innerText);
+      // console.log(e.target.innerText.slice(1))
+      setSearchText(baseUrl + e.target.innerText.slice(1));
+  }
 
     const handleSearchSubmit = (e) => {
         e.preventDefault();
@@ -85,26 +97,34 @@ const SearchBar = () => {
     }
 
     return (
-        <form className={classes.search} onSubmit={handleSearchSubmit}>
-            <TextField
-                id="searchField"
-                value={searchText}
-                className={`${classes.inputRoot} ${classes.inputInput}`}
-                // helperText="Try out: /books/3 or /characters/145 or /nations"
-                margin="none"
-                inputProps={{ 'aria-label': 'search' }}
-                onChange={handleSearchChange}
-                variant="outlined"
-                color="primary"
-                InputProps={{
-                    startAdornment: <InputAdornment position="start"><SearchIcon /></InputAdornment>,
-                }}
-                FormHelperTextProps={{
-                    variant: "filled"
-                }}
-            />
-            <input type="submit" value="Search" className={classes.btn} />
-        </form>
+        <>
+          <form className={classes.search} onSubmit={handleSearchSubmit}>
+              <TextField
+                  id="searchField"
+                  value={searchText}
+                  className={`${classes.inputRoot} ${classes.inputInput}`}
+                  // helperText="Try out: /books/3 or /characters/145 or /nations"
+                  margin="none"
+                  inputProps={{ 'aria-label': 'search' }}
+                  onChange={handleSearchChange}
+                  variant="outlined"
+                  color="primary"
+                  InputProps={{
+                      startAdornment: <InputAdornment position="start"><SearchIcon /></InputAdornment>,
+                  }}
+                  FormHelperTextProps={{
+                      variant: "filled"
+                  }}
+              />
+              <input type="submit" value="Search" className={classes.btn} />
+          </form>
+
+          <p>Try Out These:&nbsp;
+                  <span className={classes.searchLink} onClick={handleLinkClick}>/books</span>,&nbsp;
+                  <span className={classes.searchLink} onClick={handleLinkClick}>/characters/12</span>,&nbsp;
+                  <span className={classes.searchLink} onClick={handleLinkClick}>/nations/3</span>&nbsp;
+          </p>
+        </>
     )
 }
 

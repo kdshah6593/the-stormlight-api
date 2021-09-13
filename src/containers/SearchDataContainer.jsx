@@ -26,7 +26,6 @@ const SearchDataContainer = () => {
         <div className={classes.root}>
             <h3 className={classes.subTitle}>Search the API</h3>
             <SearchBar />
-            <p>Try Out these</p>
             <h3 className={classes.subTitle}>Response</h3>
             <JsonOutput />
         </div>
