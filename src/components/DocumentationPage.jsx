@@ -61,9 +61,10 @@ const DocumentationPage = () => {
             <Tabs
                 value={value}
                 onChange={handleChange}
-                indicatorColor="secondary"
-                textColor="primary"
+                // indicatorColor="#e57373"
+                textColor="#fff"
                 centered
+                TabIndicatorProps={{style: {backgroundColor: '#e57373'}}}
             >
                 <Tab label="Overview Page" className={classes.tab} />
                 <Tab label="Resource Page" className={classes.tab} />
