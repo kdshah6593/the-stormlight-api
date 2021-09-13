@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import SearchBar from '../components/SearchBar';
 import JsonOutput from '../components/JsonOutput';
@@ -22,12 +22,18 @@ const useStyles = makeStyles((theme) => ({
 const SearchDataContainer = () => {
     const classes = useStyles();
 
+    const [searchResults, setSearchResults] = useState();
+
+    const collectSearchResults = (result) => {
+        setSearchResults(result);
+    }
+
     return (
         <div className={classes.root}>
             <h3 className={classes.subTitle}>Search the API</h3>
-            <SearchBar />
+            <SearchBar collectSearchResults={collectSearchResults} />
             <h3 className={classes.subTitle}>Response</h3>
-            <JsonOutput />
+            <JsonOutput searchResults={searchResults} />
         </div>
     )
 }

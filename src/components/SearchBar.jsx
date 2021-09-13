@@ -69,9 +69,8 @@ const useStyles = makeStyles((theme) => ({
 
 const SearchBar = (props) => {
     const classes = useStyles();
-    const baseUrl = "https://thestormlightapi.com/api/";
+    const baseUrl = "http://localhost:3001/api/v1/";
     const [searchText, setSearchText] = useState(baseUrl);
-    const [searchResults, setSearchResults] = useState({});
 
     const handleSearchChange = (e) => {
         console.log(e.target.value);
@@ -81,19 +80,18 @@ const SearchBar = (props) => {
     const handleLinkClick = (e) => {
       e.preventDefault();
       console.log("Link is clicked");
-      // console.log(e.target.innerText);
-      // console.log(e.target.innerText.slice(1))
       setSearchText(baseUrl + e.target.innerText.slice(1));
   }
 
     const handleSearchSubmit = (e) => {
         e.preventDefault();
         console.log("Form Submitted")
-        // fetch(searchText)
-        // .then(resp => resp.json())
-        // .then(data => {
-        //     setSearchResults(data);
-        // })
+        fetch(searchText)
+        .then(resp => resp.json())
+        .then(data => {
+          console.log(data);  
+          props.collectSearchResults(data);
+        })
     }
 
     return (
@@ -122,7 +120,7 @@ const SearchBar = (props) => {
           <p>Try Out These:&nbsp;
                   <span className={classes.searchLink} onClick={handleLinkClick}>/books</span>,&nbsp;
                   <span className={classes.searchLink} onClick={handleLinkClick}>/characters/12</span>,&nbsp;
-                  <span className={classes.searchLink} onClick={handleLinkClick}>/nations/3</span>&nbsp;
+                  <span className={classes.searchLink} onClick={handleLinkClick}>/locations/3</span>&nbsp;
           </p>
         </>
     )

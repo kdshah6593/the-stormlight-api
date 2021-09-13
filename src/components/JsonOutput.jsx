@@ -11,29 +11,20 @@ const useStyles = makeStyles((theme) => ({
       overflow: "auto"
     },
     output: {
-        marginLeft: theme.spacing(1)
-    }
+        marginLeft: theme.spacing(1),
+        fontSize: "16px",
+    },
+
 }));
 
-const JsonOutput = () => {
+const JsonOutput = (props) => {
     const classes = useStyles();
+
+    const jsonOutput = JSON.stringify(props.searchResults, null, 2);
     
     return (
         <Paper elevation={3} className={classes.root}>
-            <p className={classes.output}>JSON Output</p>
-            <p className={classes.output}>JSON Output</p>
-            <p className={classes.output}>JSON Output</p>
-            <p className={classes.output}>JSON Output</p>
-            <p className={classes.output}>JSON Output</p>
-            <p className={classes.output}>JSON Output</p>
-            <p className={classes.output}>JSON Output</p>
-            <p className={classes.output}>JSON Output</p>
-            <p className={classes.output}>JSON Output</p>
-            <p className={classes.output}>JSON Output</p>
-            <p className={classes.output}>JSON Output</p>
-            <p className={classes.output}>JSON Output</p>
-            <p className={classes.output}>JSON Output</p>
-            <p className={classes.output}>JSON Output</p>
+            <pre className={classes.output}>{jsonOutput}</pre>
         </Paper>
     )
 }
