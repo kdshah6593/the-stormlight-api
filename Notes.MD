@@ -33,3 +33,6 @@ Colors:
 
 1. Fix Margin Spacing of Documentation Headers
 2. Work on Figuring out the tab anchoring to different headers so it title is displayed, not just the text
+
+
+When the initial home page renders, it should automatically call a search result from API
