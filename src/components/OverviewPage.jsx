@@ -46,6 +46,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     paddingLeft: 20,
     marginLeft: '200px',
+    paddingBottom: 20,
   },
   tab: {
     border: `1px solid ${theme.palette.divider}`,
