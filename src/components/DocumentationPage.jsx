@@ -40,6 +40,8 @@ TabPanel.propTypes = {
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
+    backgroundColor: '#00838f',
+    color: "#fff"
   },
   tab: {
     fontFamily: "'Oswald', sans-serif",
@@ -62,9 +64,9 @@ const DocumentationPage = () => {
                 value={value}
                 onChange={handleChange}
                 // indicatorColor="#e57373"
-                textColor="#fff"
+                textColor="#000"
                 centered
-                TabIndicatorProps={{style: {backgroundColor: '#e57373'}}}
+                TabIndicatorProps={{style: {backgroundColor: "#e57373", height: "5px"}}}
             >
                 <Tab label="Overview Page" className={classes.tab} />
                 <Tab label="Resource Page" className={classes.tab} />
