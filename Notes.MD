@@ -35,4 +35,5 @@ Colors:
 2. Work on Figuring out the tab anchoring to different headers so it title is displayed, not just the text
 
 
-When the initial home page renders, it should automatically call a search result from API
+3. When the initial home page renders, it should automatically call a search result from API
+4. Add Technologies to the About Page. Incorporate their icons
