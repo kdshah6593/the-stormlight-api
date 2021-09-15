@@ -1,5 +1,8 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
+import { Link } from '@material-ui/core';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -14,6 +17,12 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: "row",
         margin: theme.spacing(0, 2, 0, 2),
         justifyContent: "space-between",
+    },
+    icons: {
+        display: "flex",
+        flexDirection: "row",
+        margin: theme.spacing(1, 0, 0, 0),
+        justifyContent: "space-around",
     }
 }));
 
@@ -23,12 +32,23 @@ const Footer = () => {
     return (
         <div className={classes.root}>
             <div className={classes.container}>
-                <p>Footer</p>
-                <p>Copyright</p>
-                <p>Link to Github</p>
+                <p>Copyright © {new Date().getFullYear()} MIT Licensed</p>
+                <p>Created {'&'} Designed by Kunal Shah</p>
+                <div className={classes.icons}>
+                    <Link href="https://github.com/kdshah6593/the-stormlight-api-frontend" target="_blank" rel="noopener" color="inherit"><GitHubIcon fontSize="large" /></Link>
+                    <Link href="https://www.linkedin.com/in/kunalshah-6593/" target="_blank" rel="noopener" color="inherit"><LinkedInIcon fontSize="large" /></Link>
+                </div>
             </div>
         </div>
     )
 }
 
 export default Footer;
+
+//Copyright Notice
+//Privacy Policy Link
+//Sitemap
+//Logo
+//Contact Information
+//Social Media Icons
+//Email Signup Form
