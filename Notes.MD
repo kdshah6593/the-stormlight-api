@@ -18,7 +18,7 @@
 
 ## Eventually
 1. Add a signup and login page (need to work on backend for this then)
-2. Adds a page to the header for adding or editing data
+2. Adds a page to the header for adding or editing data; this will show up after login
 
 
 1. Set up 2 different Searches. Initial one is the generic one home page to JSON. The second one is a different page so that you can search for characters, books, etc to get specific details on 1 instance
@@ -36,4 +36,15 @@ Colors:
 
 
 3. When the initial home page renders, it should automatically call a search result from API
-4. Add Technologies to the About Page. Incorporate their icons
+
+4. Add a Menu to the Header
+- If not logged in, it will show Login and Sign Up Options
+- If logged in, it will show Add Data, Edit Data, Logout Options for users and verified users
+- If logged in and admin, will also show a dashboard page
+
+5. Then Need to Create:
+[] Sign Up Page
+[] Login Page
+[] Add Data Page
+[] Edit Data Page
+[] Dashboard Page
