@@ -29,6 +29,8 @@ Colors:
 #e57373 ===== theme.palette.error.light
 #00838f dark blue/green
 #4fb3bf lighter of the blue/green
+#005662 darker blue/green
+#ffefdd tan color
 
 Fonts:
 'Montserrat', sans-serif
