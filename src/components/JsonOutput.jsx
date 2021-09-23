@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
     output: {
         marginLeft: theme.spacing(1),
         fontSize: "16px",
+        fontFamily: "'Montserrat, sans-serif"
     },
 
 }));

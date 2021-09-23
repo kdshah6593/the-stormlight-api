@@ -10,6 +10,11 @@ const useStyles = makeStyles((theme) => ({
         padding: "10px 50px 30px 50px",  
         margin: "5px 5px 25px 5px",
     },
+    content: {
+        fontFamily: "'Montserrat', sans-serif",
+        fontWeight: '500',
+        fontSize: '20px',
+    }
 }));
 
 const InformationContainer = () => {
@@ -17,10 +22,10 @@ const InformationContainer = () => {
     
     return (
         <div className={classes.root}>
-            <p>I will contain More Information</p>
-            <p>I will contain More Information</p>
-            <p>I will contain More Information</p>
-            <p>I will contain More Information</p>
+            <p className={classes.content}>I will contain More Information</p>
+            <p className={classes.content}>I will contain More Information</p>
+            <p className={classes.content}>I will contain More Information</p>
+            <p className={classes.content}>I will contain More Information</p>
         </div>
     )
 }

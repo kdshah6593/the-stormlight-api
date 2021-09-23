@@ -23,6 +23,11 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: "row",
         margin: theme.spacing(1, 0, 0, 0),
         justifyContent: "space-around",
+    },
+    content: {
+        fontFamily: "'Montserrat', sans-serif",
+        fontWeight: '500',
+        fontSize: '14px',
     }
 }));
 
@@ -32,8 +37,8 @@ const Footer = () => {
     return (
         <div className={classes.root}>
             <div className={classes.container}>
-                <p>Copyright © {new Date().getFullYear()} MIT Licensed</p>
-                <p>Created {'&'} Designed by Kunal Shah</p>
+                <p className={classes.content}>Copyright © {new Date().getFullYear()} MIT Licensed</p>
+                <p className={classes.content}>Created {'&'} Designed by Kunal Shah</p>
                 <div className={classes.icons}>
                     <Link href="https://github.com/kdshah6593/the-stormlight-api-frontend" target="_blank" rel="noopener" color="inherit"><GitHubIcon fontSize="large" /></Link>
                     <Link href="https://www.linkedin.com/in/kunalshah-6593/" target="_blank" rel="noopener" color="inherit"><LinkedInIcon fontSize="large" /></Link>

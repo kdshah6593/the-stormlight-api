@@ -64,6 +64,7 @@ const useStyles = makeStyles((theme) => ({
     searchLink: {
         textDecoration: "underline",
         cursor: "pointer",
+        fontFamily: "'Montserrat', sans-serif",
     }
 }));
 
@@ -101,9 +102,11 @@ const SearchBar = (props) => {
                   id="searchField"
                   value={searchText}
                   className={`${classes.inputRoot} ${classes.inputInput}`}
-                  // helperText="Try out: /books/3 or /characters/145 or /nations"
                   margin="none"
-                  inputProps={{ 'aria-label': 'search' }}
+                  inputProps={{ 
+                    'aria-label': 'search',
+                    style: {fontFamily: "'Montserrat', sans-serif"}
+                  }}
                   onChange={handleSearchChange}
                   variant="outlined"
                   color="primary"
@@ -111,7 +114,7 @@ const SearchBar = (props) => {
                       startAdornment: <InputAdornment position="start"><SearchIcon /></InputAdornment>,
                   }}
                   FormHelperTextProps={{
-                      variant: "filled"
+                      variant: "filled",
                   }}
               />
               <input type="submit" value="Search" className={classes.btn} />

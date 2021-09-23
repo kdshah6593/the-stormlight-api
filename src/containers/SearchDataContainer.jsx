@@ -13,9 +13,10 @@ const useStyles = makeStyles((theme) => ({
       margin: "5px 5px 25px 5px",
     },
     subTitle: {
-        fontFamily: "'Cinzel Decorative', cursive",
+        fontFamily: "'Oswald', sans-serif",
         fontWeight: 900,
-        fontSize: "24px"
+        fontSize: "24px",
+        letterSpacing: '1px',
     }
 }));
 

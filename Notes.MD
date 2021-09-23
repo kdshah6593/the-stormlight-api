@@ -30,6 +30,10 @@ Colors:
 #00838f dark blue/green
 #4fb3bf lighter of the blue/green
 
+Fonts:
+'Montserrat', sans-serif
+'Oswald', sans-serif
+
 
 1. Fix Margin Spacing of Documentation Headers
 2. Work on Figuring out the tab anchoring to different headers so it title is displayed, not just the text
