@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import SearchDataContainer from '../containers/SearchDataContainer';
 import InformationContainer from '../containers/InformationContainer';
 import BackgroundImage from '../images/wayofkings.jpg';
+import BackgroundImage2 from '../images/kaladin-stormlight.jpg';
 import Footer from '../components/Footer';
 
 const useStyles = makeStyles((theme) => ({
@@ -11,8 +12,7 @@ const useStyles = makeStyles((theme) => ({
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
-      backgroundImage: `url(${BackgroundImage})`,
-      backgroundSize: 'cover',
+      backgroundColor: "#ffefdd",
     },
     title: {
         fontFamily: "'Oswald', sans-serif",
@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
         marginTop: "1%",
         marginBottom: "1%",
         fontWeight: "400",
+        color: "#fff",
     },
     subTitle: {
         fontFamily: "'Oswald', sans-serif",
@@ -29,6 +30,18 @@ const useStyles = makeStyles((theme) => ({
         marginTop: 0,
         marginBottom: "1%",
         fontWeight: "400",
+        color: "#fff",
+    },
+    titlesContainer: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        width: "100%",
+        padding: theme.spacing(10,0,16,0),
+        backgroundImage: `url(${BackgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center center'
     }
 }));
 
@@ -40,8 +53,10 @@ const HomePage = () => {
         <div>
             <Header/>
             <div className={classes.root}>
-                <h1 className={classes.title}>Welcome to the Stormlight API</h1>
-                <h3 className={classes.subTitle}>Find all the data from the world of Roshar</h3>
+                <div className={classes.titlesContainer}>
+                    <h1 className={classes.title}>Welcome to the Stormlight API</h1>
+                    <h3 className={classes.subTitle}>Find all the data from the world of Roshar</h3>
+                </div>
                 <SearchDataContainer />
                 <InformationContainer />
             </div>
