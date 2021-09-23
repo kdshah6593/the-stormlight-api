@@ -5,12 +5,14 @@ import JsonOutput from '../components/JsonOutput';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-      backgroundColor: theme.palette.error.light,
+    //   backgroundColor: "#ffefdd", //#ffe4c2  theme.palette.error.light
       width: "50%",
       display: "flex",
       flexDirection: "column",
-      padding: "10px 50px 30px 50px",  
-      margin: "5px 5px 25px 5px",
+      alignItems: "center",
+      paddingBottom: "5%",
+    //   padding: "10px 50px 30px 50px",  
+    //   margin: "0px 5px 25px 5px",
     },
     subTitle: {
         fontFamily: "'Oswald', sans-serif",
