@@ -3,6 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
     search: {
@@ -51,14 +53,15 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: "#00838f",
         color: "#fff",
         fontFamily: "'Oswald', sans-serif",
-        fontSize: "16px",
-        padding: "5px 30px",
+        fontSize: "18px",
+        letterSpacing: "2px",
+        padding: "5px 20px",
         borderRadius: "4px",
         border: "none",
         cursor: "pointer",
         marginLeft: theme.spacing(0),
         '&:hover': {
-            backgroundColor: "#4fb3bf"
+            backgroundColor: "#005662"
         }
     },
     searchLink: {
@@ -117,7 +120,9 @@ const SearchBar = (props) => {
                       variant: "filled",
                   }}
               />
-              <input type="submit" value="Search" className={classes.btn} />
+              {/* <input type="submit" value={<ArrowForwardIcon/>} className={classes.btn} /> */}
+              {/* <button type="submit" className={classes.btn}>Explore <ArrowForwardIcon /></button> */}
+              <Button variant="contained" type="submit" className={classes.btn} endIcon={<ArrowForwardIcon />}>Explore</Button>
           </form>
 
           <p>Try Out These:&nbsp;
