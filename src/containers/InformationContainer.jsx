@@ -1,14 +1,33 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        backgroundColor: theme.palette.error.light,
+        // backgroundColor: "#ffefdd", //theme.palette.error.light
         width: "50%",
         display: "flex",
         flexDirection: "column",
-        padding: "10px 50px 30px 50px",  
-        margin: "5px 5px 25px 5px",
+        // padding: "10px 50px 30px 50px",  
+        // margin: "0px 5px 0px 15px",
+    },
+    infoContainer: {
+        display: "flex",
+        width: "100%",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: theme.spacing(0,0,6,0),
+        '& > *': {
+            '&:first-child': {
+                margin: theme.spacing(0,10,0,0)
+            },
+            '&:last-child': {
+                margin: theme.spacing(0,0,0,10)
+            },
+            margin: theme.spacing(1,4,1,4),
+            width: "25vh",
+            height: "25vh",
+        },
     },
     content: {
         fontFamily: "'Montserrat', sans-serif",
@@ -22,10 +41,17 @@ const InformationContainer = () => {
     
     return (
         <div className={classes.root}>
-            <p className={classes.content}>I will contain More Information</p>
-            <p className={classes.content}>I will contain More Information</p>
-            <p className={classes.content}>I will contain More Information</p>
-            <p className={classes.content}>I will contain More Information</p>
+            <div className={classes.infoContainer}>
+                <Paper elevation={3}>
+                    <p>Text</p>
+                </Paper>
+                <Paper elevation={3}>
+                    <p>Text</p>
+                </Paper>
+                <Paper elevation={3}>
+                    <p>Text</p>
+                </Paper>
+            </div>
         </div>
     )
 }
