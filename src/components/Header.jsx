@@ -4,7 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,20 +23,28 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     textAlign: 'right',
   },
+  link: {
+    color: 'inherit',
+    textDecoration: 'inherit',
+    padding: "0px 1px 12px 1px",
+  },
+  activeLink: {
+    borderBottom: '4px solid #00838f',
+  },
   linkBtn: {
     backgroundColor: '#fff',
     fontFamily: `'Oswald', sans-serif`,
     color: "inherit",
     letterSpacing: "2px",
     '&:hover': {
-      backgroundColor: theme.palette.error.light,
+      backgroundColor: "#00838f", //theme.palette.error.light
       color: '#fff',
-    }
+    },
   },
   toolbar: theme.mixins.toolbar,
 }));
 
-export default function ButtonAppBar() {
+const Header = () => {
   const classes = useStyles();
 
   return (
@@ -47,9 +55,9 @@ export default function ButtonAppBar() {
             THE STORMLIGHT API
           </Typography>
           <Typography className={classes.navHeadings}>
-            <Link to="/" style={{ color: 'inherit', textDecoration: 'inherit'}}><Button className={classes.linkBtn}>Home</Button></Link>
-            <Link to="/about" style={{ color: 'inherit', textDecoration: 'inherit'}}><Button className={classes.linkBtn}>About</Button></Link>
-            <Link to="/documentation" style={{ color: 'inherit', textDecoration: 'inherit'}}><Button className={classes.linkBtn}>Documentation</Button></Link>
+            <NavLink exact to="/" activeClassName={classes.activeLink} className={classes.link}><Button className={classes.linkBtn}>Home</Button></NavLink>
+            <NavLink to="/about" activeClassName={classes.activeLink} className={classes.link}><Button className={classes.linkBtn}>About</Button></NavLink>
+            <NavLink to="/documentation" activeClassName={classes.activeLink} className={classes.link}><Button className={classes.linkBtn}>Documentation</Button></NavLink>
           </Typography>
         </Toolbar>
       </AppBar>
@@ -57,3 +65,5 @@ export default function ButtonAppBar() {
     </div>
   );
 }
+
+export default Header;
