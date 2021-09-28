@@ -30,7 +30,8 @@ function LinkTab(props) {
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.paper,
+    // backgroundColor: theme.palette.background.paper,
+    backgroundColor: "#ffefdd",
     display: 'flex',
   },
   tabs: {
@@ -40,13 +41,15 @@ const useStyles = makeStyles((theme) => ({
     position: 'fixed',
     // zIndex: 1,
     // overflowX: 'hidden',
+    margin: theme.spacing(1,0,0,1),
+    backgroundColor: "#fff",
   },
   sections: {
     display: 'flex',
     flexDirection: 'column',
     paddingLeft: 20,
     paddingBottom: 20,
-    margin: theme.spacing(0,20,0,50), // spacing is 8px * x
+    margin: theme.spacing(1,20,0,50), // spacing is 8px * x
   },
   tab: {
     border: `1px solid ${theme.palette.divider}`,
