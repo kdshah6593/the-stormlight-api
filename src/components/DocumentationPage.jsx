@@ -66,7 +66,7 @@ const DocumentationPage = () => {
                 // indicatorColor="#e57373"
                 textColor="#000"
                 centered
-                TabIndicatorProps={{style: {backgroundColor: "#e57373", height: "5px"}}}
+                TabIndicatorProps={{style: {backgroundColor: "#fff", height: "5px"}}}
             >
                 <Tab label="Overview Page" className={classes.tab} />
                 <Tab label="Resource Page" className={classes.tab} />
