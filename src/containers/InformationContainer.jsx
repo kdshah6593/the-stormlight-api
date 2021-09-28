@@ -19,14 +19,14 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(0,0,6,0),
         '& > *': {
             '&:first-child': {
-                margin: theme.spacing(0,10,0,0)
+                margin: theme.spacing(0,6,0,0)
             },
             '&:last-child': {
-                margin: theme.spacing(0,0,0,10)
+                margin: theme.spacing(0,0,0,6)
             },
             margin: theme.spacing(1,4,1,4),
-            width: "25vh",
-            height: "25vh",
+            width: "30vh",
+            height: "30vh",
         },
     },
     content: {
