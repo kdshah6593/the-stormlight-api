@@ -56,3 +56,4 @@ Fonts:
 [] Dashboard Page
 
 6. Try and Make Header NavLinks Underline Transition When Clicked
+- OR DECIDE TO KEEP UNDERLINE OR TEXT COLOR CHANGE TO SIGNIFY WHICH PAGE I AM ON
