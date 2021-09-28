@@ -27,9 +27,12 @@ const useStyles = makeStyles((theme) => ({
     color: 'inherit',
     textDecoration: 'inherit',
     padding: "0px 1px 12px 1px",
+    margin: "0px 4px 0px 4px",
+    borderBottom: '4px solid #fff',
   },
   activeLink: {
     borderBottom: '4px solid #00838f',
+    color: '#00838f',
   },
   linkBtn: {
     backgroundColor: '#fff',
