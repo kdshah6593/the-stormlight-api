@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
-      backgroundColor: theme.palette.background.paper,
+      backgroundColor: "#ffefdd",
       display: 'flex',
       flexDirection: 'column',
       margin: theme.spacing(1,10,-2,0),
