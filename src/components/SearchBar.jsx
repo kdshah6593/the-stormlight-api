@@ -68,6 +68,7 @@ const useStyles = makeStyles((theme) => ({
         textDecoration: "underline",
         cursor: "pointer",
         fontFamily: "'Montserrat', sans-serif",
+        letterSpacing: "1px",
     }
 }));
 
@@ -108,7 +109,7 @@ const SearchBar = (props) => {
                   margin="none"
                   inputProps={{ 
                     'aria-label': 'search',
-                    style: {fontFamily: "'Montserrat', sans-serif"}
+                    style: {fontFamily: "'Montserrat', sans-serif", letterSpacing: "1px"}
                   }}
                   onChange={handleSearchChange}
                   variant="outlined"
