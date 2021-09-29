@@ -57,3 +57,7 @@ Fonts:
 
 6. Try and Make Header NavLinks Underline Transition When Clicked
 - OR DECIDE TO KEEP UNDERLINE OR TEXT COLOR CHANGE TO SIGNIFY WHICH PAGE I AM ON
+
+Add user logged into state ----> Look In to useReducer / useContext to do global state without using Redux
+add admin logged into state
+If user logged in should give logout option, add data, edit data, dashboard (admin)
