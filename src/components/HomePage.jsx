@@ -4,7 +4,6 @@ import Header from '../components/Header';
 import SearchDataContainer from '../containers/SearchDataContainer';
 import InformationContainer from '../containers/InformationContainer';
 import BackgroundImage from '../images/wayofkings.jpg';
-import BackgroundImage2 from '../images/kaladin-stormlight.jpg';
 import Footer from '../components/Footer';
 
 const useStyles = makeStyles((theme) => ({
