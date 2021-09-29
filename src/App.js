@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './components/HomePage'
 import About from './containers/AboutContainer';
 import Documentation from './containers/DocumentationContainer';
+import LoginPage from './components/LoginPage';
+import SignupPage from './components/SignupPage';
 // import './App.css';
 
 const App = (props) => {
@@ -18,6 +20,12 @@ const App = (props) => {
           </Route>
           <Route exact path="/documentation">
             <Documentation />
+          </Route>
+          <Route exact path="/login">
+            <LoginPage />
+          </Route>
+          <Route exact path="/signup">
+            <SignupPage />
           </Route>
         </Switch>
       </Router>
