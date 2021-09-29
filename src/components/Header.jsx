@@ -63,6 +63,12 @@ const Header = () => {
   const classes = useStyles();
 
   const [anchorEl, setAnchorEl] = useState(null);
+  const [loggedIn, setLoggedIn] = useState(true);
+  const [admin, setAdmin] = useState(false);
+
+  const login = () => {
+    return loggedIn
+  }
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -71,6 +77,11 @@ const Header = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const handleLogout = () => {
+    setAnchorEl(null);
+    setLoggedIn(false);
+  }
 
   return (
     <div className={classes.root}>
@@ -101,8 +112,31 @@ const Header = () => {
               open={Boolean(anchorEl)}
               onClose={handleClose}
             >
-              <Link to="/login" className={classes.menuLink}><MenuItem onClick={handleClose}>Log In</MenuItem></Link>
-              <Link to="/signup" className={classes.menuLink}><MenuItem onClick={handleClose}>Sign Up</MenuItem></Link>
+                {login() ?
+                    (
+                      <>
+                        <Link to="/" className={classes.menuLink}><MenuItem onClick={handleLogout}>Logout</MenuItem></Link>
+                        <Link to="/login" className={classes.menuLink}><MenuItem onClick={handleClose}>Add Data</MenuItem></Link>
+                        <Link to="/signup" className={classes.menuLink}><MenuItem onClick={handleClose}>Edit Data</MenuItem></Link>
+                        {admin ? 
+                          (
+                            <Link to="/signup" className={classes.menuLink}><MenuItem onClick={handleClose}>Dashboard</MenuItem></Link>
+                          )
+                          :
+                          (
+                            ""
+                          )
+                        }
+                      </>
+                    )
+                  :
+                    (
+                      <>
+                        <Link to="/login" className={classes.menuLink}><MenuItem onClick={handleClose}>Log In</MenuItem></Link>
+                        <Link to="/signup" className={classes.menuLink}><MenuItem onClick={handleClose}>Sign Up</MenuItem></Link>
+                      </>
+                    )
+                }   
             </Menu>
           </div>
         </Toolbar>
