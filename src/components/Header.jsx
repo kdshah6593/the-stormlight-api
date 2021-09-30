@@ -63,7 +63,7 @@ const Header = () => {
   const classes = useStyles();
 
   const [anchorEl, setAnchorEl] = useState(null);
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
   const [admin, setAdmin] = useState(false);
 
   const login = () => {
