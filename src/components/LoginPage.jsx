@@ -99,6 +99,18 @@ const LoginPage = () => {
                             margin="normal"
                             onChange = {handleUsername}
                             value = {username}
+                            inputProps={{
+                                style: { fontFamily: "'Oswald', sans-serif" }
+                            }}
+                            InputProps={{
+                                disableUnderline: true,
+                            }}
+                            InputLabelProps={{
+                                style: { 
+                                    color: '#000',
+                                    fontFamily: "'Oswald', sans-serif",
+                                }
+                            }}
                         />
                         <TextField
                             id="password"
@@ -111,6 +123,18 @@ const LoginPage = () => {
                             margin="normal"
                             onChange = {handlePassword}
                             value = {password}
+                            inputProps={{
+                                style: { fontFamily: "'Oswald', sans-serif" }
+                            }}
+                            InputProps={{
+                                disableUnderline: true,
+                            }}
+                            InputLabelProps={{
+                                style: { 
+                                    color: '#000',
+                                    fontFamily: "'Oswald', sans-serif",
+                                }
+                            }}
                         />
                         <Button variant="contained" disableElevation type="submit" className={classes.btn} endIcon={<ArrowForwardIcon style={{ fontSize: 40 }}/>} />
                     </form>
