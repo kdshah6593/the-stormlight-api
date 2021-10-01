@@ -59,6 +59,14 @@ const useStyles = makeStyles((theme) => ({
             color: "#fff"
         }
     },
+    signupLink: {
+        textDecoration: "none",
+        fontFamily: "'Oswald', sans-serif",
+        color: "#000",
+        "&:hover": {
+            color: "#00838f"
+        }
+    }
 }));
 
 // NOTES: HAVE THE BUTTON CHANGE TO FILLED (HOVER CURRENTLY) WHEN PASSWORD FIELD CHANGES FROM EMPTY TO SOMETHING
@@ -141,7 +149,7 @@ const LoginPage = () => {
 
                     <Grid container justify="center">
                         <Grid item>
-                            <RouteLink to={`/signup`} variant="body2">
+                            <RouteLink to={`/signup`} className={classes.signupLink}>
                             {"Don't have an account? Sign Up"}
                             </RouteLink>
                         </Grid>
