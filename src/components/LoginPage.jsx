@@ -20,7 +20,6 @@ const useStyles = makeStyles((theme) => ({
       backgroundImage: `url(${BackgroundImage3})`,
       backgroundRepeat: 'repeat',
       backgroundSize: '20%',
-    //   backgroundColor: "#ffefdd",
     },
     loginContainer: {
         width: "30%",
@@ -79,11 +78,11 @@ const LoginPage = () => {
 
     const handleUsername = (event) => {
         setUsername(event.target.value)
-      }
+    }
     
       const handlePassword = (event) => {
         setPassword(event.target.value)
-      }
+    }
     
     const handleSubmit = (e) => {
         console.log("Login Form Submitted")
@@ -123,7 +122,7 @@ const LoginPage = () => {
                         <TextField
                             id="password"
                             label="Password"
-                            name="username"
+                            name="password"
                             type="password"
                             variant="filled"
                             required
