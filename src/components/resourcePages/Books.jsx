@@ -33,8 +33,18 @@ const useStyles = makeStyles((theme) => ({
       fontSize: '20px',
     },
     table: {
-      minWidth: 650,
+      minWidth: "auto",
     },
+    response: {
+      backgroundColor: "white",
+      width: "50%",
+      // minHeight: "40vh",
+      // maxHeight: "40vh",
+      margin: theme.spacing(0,0,2,0)
+    },
+    pre: {
+      margin: 0
+    }
 }));
 
 const Books = (props) => {
@@ -45,12 +55,29 @@ const Books = (props) => {
     }
 
     const rows = [
-      createData('Title', "string", "description"),
-      createData('Author', "string", "description"),
-      createData('ISBN', "string", "description"),
-      createData('Pages', "integer", "description"),
+      createData('Title', "string", "The title of this book"),
+      createData('Author', "string", "The author of this book"),
+      createData('ISBN', "string", "The International Standard Book Number (ISBN-13) that uniquely identifies this book."),
+      createData('Pages', "integer", "The number of pages in this book."),
     ];
-    
+
+    const response = String.raw`
+    {
+      "data": [
+        {
+          "title": "The Way of Kings",
+          "author": "Brandon Sanderson",
+          ...
+        },
+        {
+          "title": "Words of Radiance",
+          "author": "Brandon Sanderson",
+          ...
+        },
+      ]
+    }
+    `;
+
     return (
       <>
         <div id={props.id} className={classes.anchor} ></div>
@@ -59,42 +86,28 @@ const Books = (props) => {
           <p className={classes.content}>Example Request</p>
           <code>"https://www.anapioficeandfire.com/api/v1/books"</code>
           <p className={classes.content}>Example Response</p>
-          <code>
-            {`
-              {
-                "data": [
-                  {
-                    "title": "The Way of Kings",
-                    "author": "Brandon Sanderson",
-                    ...
-                  },
-                  {
-                    "title": "Words of Radiance",
-                    "author": "Brandon Sanderson",
-                    ...
-                  },
-                ]
-              }  
-            `}
-          </code>
+
+
+          <Paper elevation={3} className={classes.response}>
+            <pre className={classes.pre}>{response}</pre>
+          </Paper>
+          
 
           <TableContainer component={Paper}>
-            <Table className={classes.table} aria-label="simple table">
+            <Table className={classes.table} aria-label="books table">
               <TableHead>
                 <TableRow>
                   <TableCell>Name</TableCell>
-                  <TableCell align="right">Type</TableCell>
-                  <TableCell align="right">Description</TableCell>
+                  <TableCell>Type</TableCell>
+                  <TableCell>Description</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
                 {rows.map((row) => (
                   <TableRow key={row.name}>
-                    <TableCell component="th" scope="row">
-                      {row.name}
-                    </TableCell>
-                    <TableCell align="right">{row.type}</TableCell>
-                    <TableCell align="right">{row.description}</TableCell>
+                    <TableCell component="th" scope="row">{row.name}</TableCell>
+                    <TableCell>{row.type}</TableCell>
+                    <TableCell>{row.description}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
