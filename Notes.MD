@@ -49,8 +49,8 @@ Fonts:
 - If logged in and admin, will also show a dashboard page
 
 5. Then Need to Create:
-[] Sign Up Page
-[] Login Page
+[x] Sign Up Page
+[x] Login Page
 [] Add Data Page
 [] Edit Data Page
 [] Dashboard Page
@@ -61,3 +61,5 @@ Fonts:
 Add user logged into state ----> Look In to useReducer / useContext to do global state without using Redux
 add admin logged into state
 If user logged in should give logout option, add data, edit data, dashboard (admin)
+
+7. Move Tables for Resources into own component and then pass the rows as props
