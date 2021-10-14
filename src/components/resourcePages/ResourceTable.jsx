@@ -14,16 +14,10 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-
 const ResourceTable = (props) => {
     const classes = useStyles()
-
-    function createData(name, type, description) {
-        return { name, type, description };
-    }
     
     return (
-
         <TableContainer component={Paper}>
             <Table className={classes.table} aria-label="books table">
                 <TableHead>
