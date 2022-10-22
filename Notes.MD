@@ -1,31 +1,88 @@
+### Firebase Help
+
+1. Open terminal and log into firebase: `firebase login` or `firebase login --reauth`
+2. Build our project: `yarn build`
+3. Initiate the project if it hasn't been already: `firebase init`
+4. Deploy the app to firebase: `firebase deploy`
+
+#### How to Access DB
+
+import `db` from `utils/firebase.js`
+then `db.ref("/")` which will contain the collections/document pattern
+
+Setting data
+
+```
+writeUserData = () => {
+  Firebase.database().ref('/').set(this.state);
+  console.log('DATA SAVED');
+}
+```
+
+Getting Database
+
+```
+getUserData = () => {
+  let ref = Firebase.database().ref('/');
+  ref.on('value', snapshot => {
+    const state = snapshot.val();
+    this.setState(state);
+  });
+  console.log('DATA RETRIEVED');
+}
+```
+
+## Website
+
+Can see app at [Stormlight API](https://stormlightapi.web.app)
+
 ## Home Page
+
 1. Page will have header and subheader
 2. Then a component that includes a search bar to test out the api
 3. A display in that same component that displays the JSON response.
+   [] When the initial home page renders, it should automatically call a search result from API
 
+## About Page
 
-## About page
 1. Incorporate Links
 
-
 ## Documentation page
+
 1. How to use the api
 2. What options are available
 3. what characteristics are available
 4. Create a sidebar with links to each of the sections above and
 
+[] Fix Margin Spacing of Documentation Headers
 
+## Login Page
 
-## Eventually
-1. Add a signup and login page (need to work on backend for this then)
-2. Adds a page to the header for adding or editing data; this will show up after login
+## Sign Up Page
 
+## Contributing/Adding/Editing Data Page
 
-1. Set up 2 different Searches. Initial one is the generic one home page to JSON. The second one is a different page so that you can search for characters, books, etc to get specific details on 1 instance
+## Current Tasks
 
+[] Create Collections and Documents in Firebase database
+[x] Add a signup and login page (need to work on backend for this then)
+[] Set up 2 different Searches. Initial one is the generic one home page to JSON. The second one is a different page so that you can search for characters, books, etc to get specific details on 1 instance
+[] Work on Figuring out the tab anchoring to different headers so it title is displayed, not just the text
+[] Add a Menu to the Header
 
+- [] If not logged in, it will show Login and Sign Up Options
+- [] If logged in, it will show Add Data, Edit Data, Logout Options for users and verified users
+- [] If logged in and admin, will additionally show a dashboard page
 
-Colors: 
+[] Try and Make Header NavLinks Underline Transition When Clicked
+
+- OR DECIDE TO KEEP UNDERLINE OR TEXT COLOR CHANGE TO SIGNIFY WHICH PAGE I AM ON
+  [] Add user logged into state ----> Look In to useReducer / useContext to do global state without using Redux
+  [] add admin logged into state
+  [] Move Tables for Resources into own component and then pass the rows as props
+
+## Colors:
+
 #e57373 ===== theme.palette.error.light
 #00838f dark blue/green
 #4fb3bf lighter of the blue/green
@@ -36,30 +93,6 @@ Fonts:
 'Montserrat', sans-serif
 'Oswald', sans-serif
 
+## Database Users
 
-1. Fix Margin Spacing of Documentation Headers
-2. Work on Figuring out the tab anchoring to different headers so it title is displayed, not just the text
-
-
-3. When the initial home page renders, it should automatically call a search result from API
-
-4. Add a Menu to the Header
-- If not logged in, it will show Login and Sign Up Options
-- If logged in, it will show Add Data, Edit Data, Logout Options for users and verified users
-- If logged in and admin, will also show a dashboard page
-
-5. Then Need to Create:
-[x] Sign Up Page
-[x] Login Page
-[] Add Data Page
-[] Edit Data Page
-[] Dashboard Page
-
-6. Try and Make Header NavLinks Underline Transition When Clicked
-- OR DECIDE TO KEEP UNDERLINE OR TEXT COLOR CHANGE TO SIGNIFY WHICH PAGE I AM ON
-
-Add user logged into state ----> Look In to useReducer / useContext to do global state without using Redux
-add admin logged into state
-If user logged in should give logout option, add data, edit data, dashboard (admin)
-
-7. Move Tables for Resources into own component and then pass the rows as props
+- Name, Email, Username, Password, Verified Status, # of submissions (will control verified status)
