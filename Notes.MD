@@ -9,6 +9,7 @@
 `https://www.makeuseof.com/react-app-firebase-connect/`
 `https://www.makeuseof.com/firebase-react-authentication/`
 `https://blog.logrocket.com/building-rest-api-firebase-cloud-functions-typescript-firestore/#creating-firestore-database`
+`https://jujuontheweb.medium.com/adding-firebase-database-restapi-to-react-app-8e8ba8d6422e`
 
 #### How to Access DB
 
@@ -71,7 +72,9 @@ getUserData = () => {
 
 ## Website
 
-Can see app at [Stormlight API](https://stormlightapi.web.app)
+[] Deploy App
+
+- Can see app at [Stormlight API](https://stormlightapi.web.app)
 
 ## Home Page
 
@@ -95,19 +98,37 @@ Can see app at [Stormlight API](https://stormlightapi.web.app)
 
 ## Login Page
 
+[] Redirect to Profile Page after login
+
 ## Sign Up Page
+
+[] See Authentication below
+
+## Profile Page
+
+[] Create this page - ability to change password and see basic stats
 
 ## Contributing/Adding/Editing Data Page
 
+[] Create this page
+[] Add functions to update firestore database
+[] Add checks that this page only appears after logging in as a user
+
 ## Current Tasks
 
-[] Create Collections and Documents in Firebase database
+[x] Create Collections and Documents in Firebase database
 [x] Add a signup and login page (need to work on backend for this then)
 [] Set up 2 different Searches. Initial one is the generic one home page to JSON. The second one is a different page so that you can search for characters, books, etc to get specific details on 1 instance
 [] Work on Figuring out the tab anchoring to different headers so it title is displayed, not just the text
 [] Add a Menu to the Header
 
-- [] If not logged in, it will show Login and Sign Up Options
+[] Authentication
+
+- [] Set up authentication rules for collections
+- [] Set up users collection and add admin role
+- [] Set up users collection read/create/update access to the logged in user
+
+- [x] If not logged in, it will show Login and Sign Up Options
 - [] If logged in, it will show Add Data, Edit Data, Logout Options for users and verified users
 - [] If logged in and admin, will additionally show a dashboard page
 
