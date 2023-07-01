@@ -111,6 +111,7 @@ const SignupPage = () => {
   const handleSubmit = (e) => {
     console.log("Sign Up Form Submitted");
     // add a check that password and confirm password equal each other
+    // testing testing
     signUp();
   };
 
