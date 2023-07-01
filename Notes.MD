@@ -5,12 +5,17 @@
 3. Initiate the project if it hasn't been already: `firebase init`
 4. Deploy the app to firebase: `firebase deploy`
 
+`https://blog.logrocket.com/build-crud-application-react-firebase-web-sdk-v9/`
+`https://www.makeuseof.com/react-app-firebase-connect/`
+`https://www.makeuseof.com/firebase-react-authentication/`
+`https://blog.logrocket.com/building-rest-api-firebase-cloud-functions-typescript-firestore/#creating-firestore-database`
+
 #### How to Access DB
 
-import `db` from `utils/firebase.js`
-then `db.ref("/")` which will contain the collections/document pattern
+import `firestore` from `utils/firebase.js`
+then `firestore.ref("/")` which will contain the collections/document pattern
 
-Setting data
+#### Setting data
 
 ```
 writeUserData = () => {
@@ -19,9 +24,41 @@ writeUserData = () => {
 }
 ```
 
+```
+import { collection, addDoc, Timestamp } from "firebase/firestore";
+const handleSubmit = async (e) => {
+   e.preventDefault()
+   try {
+     await addDoc(collection(db, 'tasks'), {
+       title: title,
+       description: description,
+       completed: false,
+       created: Timestamp.now()
+     })
+     onClose()
+   } catch (err) {
+     alert(err)
+   }
+ }
+```
+
 Getting Database
 
 ```
+/* function to get all tasks from firestore in realtime */
+useEffect(() => {
+  const q = query(collection(db, 'tasks'), orderBy('created', 'desc'))
+  onSnapshot(q, (querySnapshot) => {
+    setTasks(querySnapshot.docs.map(doc => ({
+      id: doc.id,
+      data: doc.data()
+    })))
+  })
+},[])
+```
+
+```
+import {collection, query, orderBy, onSnapshot} from "firebase/firestore"
 getUserData = () => {
   let ref = Firebase.database().ref('/');
   ref.on('value', snapshot => {
