@@ -75,8 +75,8 @@ const useStyles = makeStyles((theme) => ({
 const SearchBar = (props) => {
   const classes = useStyles();
   // const baseUrl = "http://localhost:3001/api/v1/";
-  const baseUrl = `https://firestore.googleapis.com/v1/projects/${process.REACT_APP_FIREBASE_PROJECT_ID}/databases/(default)/documents/`;
-  const [searchText, setSearchText] = useState(baseUrl);
+  const baseUrl = `https://firestore.googleapis.com/v1/projects/${process.env.REACT_APP_FIREBASE_PROJECT_ID}/databases/(default)/documents`;
+  const [searchText, setSearchText] = useState("");
 
   const handleSearchChange = (e) => {
     console.log(e.target.value);
@@ -86,14 +86,14 @@ const SearchBar = (props) => {
   const handleLinkClick = (e) => {
     e.preventDefault();
     console.log("Link is clicked");
-    setSearchText(baseUrl + e.target.innerText.slice(1));
+    setSearchText(e.target.innerText);
   };
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     console.log("Form Submitted");
 
-    fetch(searchText)
+    fetch(baseUrl + searchText)
       .then((resp) => resp.json())
       .then((data) => {
         console.log(data);
