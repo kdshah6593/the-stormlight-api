@@ -1,13 +1,5 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { firestore } from "../utils/firebase";
-import {
-  collection,
-  query,
-  orderBy,
-  onSnapshot,
-  QuerySnapshot,
-} from "firebase/firestore";
 import SearchIcon from "@material-ui/icons/Search";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -82,7 +74,8 @@ const useStyles = makeStyles((theme) => ({
 
 const SearchBar = (props) => {
   const classes = useStyles();
-  const baseUrl = "/";
+  // const baseUrl = "http://localhost:3001/api/v1/";
+  const baseUrl = `https://firestore.googleapis.com/v1/projects/${process.REACT_APP_FIREBASE_PROJECT_ID}/databases/(default)/documents/`;
   const [searchText, setSearchText] = useState(baseUrl);
 
   const handleSearchChange = (e) => {
@@ -100,22 +93,12 @@ const SearchBar = (props) => {
     e.preventDefault();
     console.log("Form Submitted");
 
-    const q = query(collection(firestore, searchText));
-    onSnapshot(q, (querySnapshot) => {
-      props.collectSearchResults(
-        querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          data: doc.data(),
-        }))
-      );
-    });
-
-    // fetch(searchText)
-    //   .then((resp) => resp.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //     props.collectSearchResults(data);
-    //   });
+    fetch(searchText)
+      .then((resp) => resp.json())
+      .then((data) => {
+        console.log(data);
+        props.collectSearchResults(data);
+      });
   };
 
   return (
