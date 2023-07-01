@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import { Link, NavLink } from 'react-router-dom';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
+import React, { useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+import { Link, NavLink } from "react-router-dom";
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
+import Menu from "@material-ui/core/Menu";
+import { signOut } from "firebase/auth";
+import { auth } from "../utils/firebase";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,39 +27,38 @@ const useStyles = makeStyles((theme) => ({
   },
   navHeadings: {
     flexGrow: 1,
-    textAlign: 'right',
+    textAlign: "right",
   },
   link: {
-    color: 'inherit',
-    textDecoration: 'inherit',
+    color: "inherit",
+    textDecoration: "inherit",
     padding: "0px 1px 12px 1px",
     margin: "0px 4px 0px 4px",
-    borderBottom: '4px solid #fff',
+    borderBottom: "4px solid #fff",
   },
   activeLink: {
-    borderBottom: '4px solid #00838f',
-    color: '#00838f',
+    borderBottom: "4px solid #00838f",
+    color: "#00838f",
   },
   linkBtn: {
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     fontFamily: `'Oswald', sans-serif`,
     color: "inherit",
     letterSpacing: "2px",
-    '&:hover': {
+    "&:hover": {
       backgroundColor: "#00838f", //theme.palette.error.light
-      color: '#fff',
+      color: "#fff",
     },
   },
   menu: {
     marginLeft: "16px",
   },
   menuLink: {
-    color:"inherit",
+    color: "inherit",
     textDecoration: "inherit",
   },
   toolbar: theme.mixins.toolbar,
 }));
-
 
 const Header = () => {
   const classes = useStyles();
@@ -67,21 +68,32 @@ const Header = () => {
   const [admin, setAdmin] = useState(false);
 
   const login = () => {
-    return loggedIn
-  }
+    return loggedIn;
+  };
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
-  
+
   const handleClose = () => {
     setAnchorEl(null);
   };
 
+  /* Sign out function */
+  const logOut = async () => {
+    try {
+      await signOut(auth);
+      return true;
+    } catch (error) {
+      return false;
+    }
+  };
+
   const handleLogout = () => {
+    logOut();
     setAnchorEl(null);
     setLoggedIn(false);
-  }
+  };
 
   return (
     <div className={classes.root}>
@@ -91,9 +103,28 @@ const Header = () => {
             THE STORMLIGHT API
           </Typography>
           <Typography className={classes.navHeadings}>
-            <NavLink exact to="/" activeClassName={classes.activeLink} className={classes.link}><Button className={classes.linkBtn}>Home</Button></NavLink>
-            <NavLink to="/about" activeClassName={classes.activeLink} className={classes.link}><Button className={classes.linkBtn}>About</Button></NavLink>
-            <NavLink to="/documentation" activeClassName={classes.activeLink} className={classes.link}><Button className={classes.linkBtn}>Documentation</Button></NavLink>
+            <NavLink
+              exact
+              to="/"
+              activeClassName={classes.activeLink}
+              className={classes.link}
+            >
+              <Button className={classes.linkBtn}>Home</Button>
+            </NavLink>
+            <NavLink
+              to="/about"
+              activeClassName={classes.activeLink}
+              className={classes.link}
+            >
+              <Button className={classes.linkBtn}>About</Button>
+            </NavLink>
+            <NavLink
+              to="/documentation"
+              activeClassName={classes.activeLink}
+              className={classes.link}
+            >
+              <Button className={classes.linkBtn}>Documentation</Button>
+            </NavLink>
           </Typography>
           <div className={classes.menu}>
             <IconButton
@@ -112,31 +143,35 @@ const Header = () => {
               open={Boolean(anchorEl)}
               onClose={handleClose}
             >
-                {login() ?
-                    (
-                      <>
-                        <Link to="/" className={classes.menuLink}><MenuItem onClick={handleLogout}>Logout</MenuItem></Link>
-                        <Link to="/login" className={classes.menuLink}><MenuItem onClick={handleClose}>Add Data</MenuItem></Link>
-                        <Link to="/signup" className={classes.menuLink}><MenuItem onClick={handleClose}>Edit Data</MenuItem></Link>
-                        {admin ? 
-                          (
-                            <Link to="/signup" className={classes.menuLink}><MenuItem onClick={handleClose}>Dashboard</MenuItem></Link>
-                          )
-                          :
-                          (
-                            ""
-                          )
-                        }
-                      </>
-                    )
-                  :
-                    (
-                      <>
-                        <Link to="/login" className={classes.menuLink}><MenuItem onClick={handleClose}>Log In</MenuItem></Link>
-                        <Link to="/signup" className={classes.menuLink}><MenuItem onClick={handleClose}>Sign Up</MenuItem></Link>
-                      </>
-                    )
-                }   
+              {login() ? (
+                <>
+                  <Link to="/" className={classes.menuLink}>
+                    <MenuItem onClick={handleLogout}>Logout</MenuItem>
+                  </Link>
+                  <Link to="/login" className={classes.menuLink}>
+                    <MenuItem onClick={handleClose}>Add Data</MenuItem>
+                  </Link>
+                  <Link to="/signup" className={classes.menuLink}>
+                    <MenuItem onClick={handleClose}>Edit Data</MenuItem>
+                  </Link>
+                  {admin ? (
+                    <Link to="/signup" className={classes.menuLink}>
+                      <MenuItem onClick={handleClose}>Dashboard</MenuItem>
+                    </Link>
+                  ) : (
+                    ""
+                  )}
+                </>
+              ) : (
+                <>
+                  <Link to="/login" className={classes.menuLink}>
+                    <MenuItem onClick={handleClose}>Log In</MenuItem>
+                  </Link>
+                  <Link to="/signup" className={classes.menuLink}>
+                    <MenuItem onClick={handleClose}>Sign Up</MenuItem>
+                  </Link>
+                </>
+              )}
             </Menu>
           </div>
         </Toolbar>
@@ -144,6 +179,6 @@ const Header = () => {
       <div className={classes.toolbar} />
     </div>
   );
-}
+};
 
 export default Header;
